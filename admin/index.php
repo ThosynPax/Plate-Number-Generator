@@ -6,24 +6,29 @@
 
                     <div class="span9">
                         <?php 
-                            $query = mysqli_query($db, "SELECT * FROM users WHERE email='$email' AND password='$password' ");
+                            $query = mysqli_query($db, "SELECT * FROM users");
 
                             while($row = mysqli_fetch_assoc($query)){
                                 $total_users = $row['id'];
+                                $email = $row['email'];
+                                $passport = $row['passport'];
+                                $fullname = $row['fullname'];
+                                $age = $row['Age'];
+                                $plate_no = $row['plate'];
                             }
 
                         ?>
                         <div class="content">
                             <div class="btn-controls">
                                 <div class="btn-box-row row-fluid">
-                                    <a href="#" class="btn-box big span4"><i class=" icon-random"></i><b>65%</b>
+                                    <!-- <a href="#" class="btn-box big span4"><i class=" icon-random"></i><b>65%</b>
                                         <p class="text-muted">
-                                            Growth</p>
+                                            Growth</p> -->
                                     </a><a href="#" class="btn-box big span4"><i class="icon-user"></i><b><?php echo $total_users; ?></b>
                                         <p class="text-muted">
                                             Registered Users
                                         </p>
-                                    </a><a href="#" class="btn-box big span4"><i class="icon-money"></i><b>15,152</b>
+                                    </a><a href="#" class="btn-box big span4"><i class="icon-money"></i><b><?php echo $total_users; ?></b>
                                         <p class="text-muted">
                                             Registered Vehicles
                                         </p>
@@ -59,39 +64,62 @@
                                         <thead>
                                             <tr>
                                                 <th>
-                                                    Rendering engine
+                                                    No
                                                 </th>
                                                 <th>
-                                                    Browser
+                                                    fullname
                                                 </th>
                                                 <th>
-                                                    Platform(s)
+                                                    Email
                                                 </th>
                                                 <th>
-                                                    Engine version
+                                                    Age
                                                 </th>
                                                 <th>
-                                                    CSS grade
+                                                    Plate No
+                                                </th>
+                                                <th>
+                                                    Passport
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody>
+
+                                        <?php 
+                                            $query = mysqli_query($db, "SELECT * FROM users");
+                                            while($row = mysqli_fetch_assoc($query)){
+                                                $total_users = $row['id'];
+                                                $email = $row['email'];
+                                                $passport = $row['passport'];
+                                                $fullname = $row['fullname'];
+                                                $age = $row['Age'];
+                                                $plate_no = $row['plate'];
+                                                $passport = $row['passport'];
+                                        ?>
+                                        
                                             <tr class="odd gradeX">
                                                 <td>
-                                                    Trident
+                                                    <?php echo $total_users; ?>
                                                 </td>
                                                 <td>
-                                                    Internet Explorer 4.0
+                                                    <?php echo $fullname; ?>
                                                 </td>
                                                 <td>
-                                                    Internet Explorer 4.0
+                                                    <?php echo $email; ?>
                                                 </td>
                                                 <td>
-                                                    Internet Explorer 4.0
+                                                    <?php echo $age; ?>
                                                 </td>
                                                 <td>
-                                                    Internet Explorer 4.0
+                                                    <?php echo $plate_no; ?>
                                                 </td>
+                                                <td>
+                                                    <img src="../images/uploads/<?php echo $passport; ?>" alt="passport"
+                                                    width="100"
+                                                    >
+                                                </td>
+                                            </tr>
+                                        <?php }  ?>
                                         </tbody>
                                     </table>
                                 </div>
