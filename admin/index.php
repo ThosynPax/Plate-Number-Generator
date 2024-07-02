@@ -13,7 +13,7 @@
                                 $email = $row['email'];
                                 $passport = $row['passport'];
                                 $fullname = $row['fullname'];
-                                $age = $row['Age'];
+                                $car_year = $row['car_year'];
                                 $plate_no = $row['plate'];
                             }
 
@@ -73,7 +73,7 @@
                                                     Email
                                                 </th>
                                                 <th>
-                                                    Age
+                                                    Car Year
                                                 </th>
                                                 <th>
                                                     Plate No
@@ -92,7 +92,7 @@
                                                 $email = $row['email'];
                                                 $passport = $row['passport'];
                                                 $fullname = $row['fullname'];
-                                                $age = $row['Age'];
+                                                $car_year = $row['car_year'];
                                                 $plate_no = $row['plate'];
                                                 $passport = $row['passport'];
                                         ?>
@@ -108,7 +108,7 @@
                                                     <?php echo $email; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $age; ?>
+                                                    <?php echo $car_year; ?>
                                                 </td>
                                                 <td>
                                                     <?php echo $plate_no; ?>

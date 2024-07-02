@@ -1,6 +1,6 @@
 <div class="footer">
             <div class="container">
-                <b class="copyright">&copy; 2021 carlead </b>All rights reserved.
+                <b class="copyright">Copyright - by Famurewa oyadoyin moronkola - 22/CSH/012 - Igbajo Polytechnic &copy; <?php echo date("Y") ?></p>
             </div>
         </div>
         <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>

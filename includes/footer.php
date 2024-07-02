@@ -1,7 +1,7 @@
     
     <footer class="bg-dark py-2">
         <div class="container">
-            <p class="text-white text-center">Copyright calead &copy; <?php echo date("Y") ?></p>
+            <p class="text-white text-center">Copyright - by Famurewa oyadoyin moronkola - 22/CSH/012 - Igbajo Polytechnic &copy; <?php echo date("Y") ?></p>
         </div>
     </footer>
 

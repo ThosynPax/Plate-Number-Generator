@@ -1,3 +1,11 @@
+<?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+?>
+
 <?php include "includes/header.php" ?>
 
     <?php include "includes/navbar.php" ?>
@@ -6,8 +14,7 @@
         <div class="container">
             <div class="row">
                 <div id="section-content" class="col-md-6 text-white">
-                    <h2 class="display-3">Is your <span class="pink-color">Plate number Registered</span></h2>
-                    <p>At Carlead we make it as easy as Possible</p>
+                    <h2 class="display-3">Register and get your <span class="pink-color">Plate number today!</span></h2>
                 </div>
                 <div id="showcase-card" class="col-md-6">
                     <div class="card">
@@ -19,7 +26,10 @@
                                     $state = mysqli_real_escape_string($db, $_POST['state']);
                                     $email = mysqli_real_escape_string($db, $_POST['email']);
                                     $password = mysqli_real_escape_string($db, $_POST['password']);
-                                    $age = mysqli_real_escape_string($db, $_POST['age']);
+                                    $vehicle_make = mysqli_real_escape_string($db, $_POST['vehicle_make']);
+                                    $fuel_type = mysqli_real_escape_string($db, $_POST['fuel_type']);
+                                    $car_year = mysqli_real_escape_string($db, $_POST['car_year']);
+                                    $chasis_no = mysqli_real_escape_string($db, $_POST['chasis_no']);
                                     
                                     $letters = "ABCDEFGIJKLMNOPQRSTUVWXYZ";
                                     
@@ -30,7 +40,7 @@
                                     
                                     move_uploaded_file($image_tmp_name, "images/uploads/$image_name");
 
-                                    $query = mysqli_query($db, "INSERT INTO users(fullname, state, email, password, age, passport, plate) VALUES('$full_name', '$state', '$email', '$password', '$age', '$image_name', '$plate_number')");
+                                    $query = mysqli_query($db, "INSERT INTO users(fullname, state, email, password, passport, vehicle_make, fuel_type, car_year, chasis_no, plate) VALUES('$full_name', '$state', '$email', '$password', '$image_name', '$vehicle_make', '$fuel_type', '$car_year', '$chasis_no', '$plate_number')");
 
                                     $_SESSION['full_name'] = $full_name;
 
@@ -44,7 +54,7 @@
                                     <input type="text" class="form-control form-control-lg" placeholder="full name" name="full_name" required>
                                 </div>
                                 <div class="form-group">
-                                    <h5 class="text-dark">Your Passport</h5>
+                                    <h5 class="text-dark">Upload Driver's license</h5>
                                     <input type="file" class="form-control form-control-lg" name="passport" placeholder="Passport" required>
                                 </div>
                                 <div class="form-group">   
@@ -88,13 +98,22 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control form-control-lg" placeholder="Your Age" name="age" required>
-                                </div>
-                                <div class="form-group">
                                     <input type="email" class="form-control form-control-lg" placeholder="email" name="email" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-lg" placeholder="password" name="password">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Vehicle Brand and Model" name="vehicle_make">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Fuel type" name="fuel_type">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Year of manufacture" name="car_year">
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-lg" placeholder="Chasis No" name="chasis_no">
                                 </div>
                                 <input type="submit" 
                                        value="Register" 
@@ -103,86 +122,6 @@
                             </form>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="best" class="m-5">
-        <div class="container mt-5">
-            <h2 class="h1 text-center">We are the best</h2>
-            <p class="text-center">Want to hit the road, we will get your plates in the shortest Time</p>
-            <div class="row text-center">
-                <div class="col-md-3 shadow">
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            <h2>High secured</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 shadow">
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            <h2>Fast</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 shadow">
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            <h2>Efficient</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 shadow">
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            <h2>24 / 7 support</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="what-we-do">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div id="card-box">
-                        <img src="images/car-3.jpg" alt="Car">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div id="what-we-do-content">
-                        <h1 class="display-4">
-                            One of the Greatest Pleasures <span class="pink-color">Can Have</span>
-                        </h1>
-                        <p class="lead">
-                            For 25 years, we raising the standard of used Plate registration with one of the most innovative and reliable used business plan ever. A comprehensive range of benefits as standard has evolved over time and, today, drivers can leave the forecourt with total reassurance and peace of mind.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="who-we-partner-with" class="mt-5 bg-light">
-        <div class="container">
-            <h2 class="h1 display-4 text-center">Our Partners</h2>
-            <div class="row text-center">
-                <div class="col-md-3">
-                    <img src="images/brand-1.png" alt="">
-                </div>
-                <div class="col-md-3">
-                    <img src="images/brand-2.png" alt="">
-                </div>
-                <div class="col-md-3">
-                    <img src="images/brand-3.png" alt="">
-                </div>
-                <div class="col-md-3">
-                    <img src="images/brand-4.png" alt="">
                 </div>
             </div>
         </div>
